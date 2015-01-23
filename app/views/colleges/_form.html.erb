@@ -13,19 +13,19 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name , :placeholder => "Name of the college" %>
   </div>
   <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.text_field :country ,:placeholder => "Country"%>
   </div>
   <div class="field">
     <%= f.label :min_sat_score %><br>
-    <%= f.text_field :min_sat_score %>
+    <%= f.text_field :min_sat_score ,:placeholder => "Score required to join"%>
   </div>
   <div class="field">
     <%= f.label :tution_fee %><br>
-    <%= f.text_field :tution_fee %>
+    <%= f.text_field :tution_fee ,:placeholder => "Fee in USD"%>
   </div>
   <div class="actions">
     <%= f.submit %>

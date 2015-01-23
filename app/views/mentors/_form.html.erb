@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name ,:placeholder => "Enter your Name" %>
   </div>
   <div class="field">
     <%= f.label :age %><br>
@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
+    <%= f.text_area :bio ,:placeholder => "Words about you" %>
   </div>
   <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.text_field :country, :placeholder => "Country" %>
   </div>
   <div class="actions">
     <%= f.submit %>

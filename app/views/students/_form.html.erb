@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name , :placeholder => "Enter your Name" %>
   </div>
   <div class="field">
     <%= f.label :age %><br>
@@ -29,19 +29,19 @@
   </div>
   <div class="field">
     <%= f.label :current_school %><br>
-    <%= f.text_field :current_school %>
+    <%= f.text_field :current_school , :placeholder => "Name of your current institution" %>
   </div>
   <div class="field">
     <%= f.label :current_level %><br>
-    <%= f.text_field :current_level %>
+    <%= f.text_field :current_level ,:placeholder => "Current education level" %>
   </div>
   <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.text_field :country ,:placeholder => "country" %>
   </div>
   <div class="field">
     <%= f.label :sat_score %><br>
-    <%= f.number_field :sat_score %>
+    <%= f.number_field :sat_score ,:placeholder => "Enter your SAT score" %>
   </div>
   <div class="actions">
     <%= f.submit %>
