@@ -1,0 +1,41 @@
+<%= form_for(@mentor) do |f| %>
+  <% if @mentor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mentor.errors.count, "error") %> prohibited this mentor from being saved:</h2>
+
+      <ul>
+      <% @mentor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.select :age ,(20..75) %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+   <%= f.select :gender,options_for_select( %w[Choose Female Male]) %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br>
+     <%= f.date_select :dob , {include_blank: false ,start_year: Date.today.year - 80 ,end_year: Date.today.year - 19 , default: {day:31,month: 1, year: 1995}} %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
