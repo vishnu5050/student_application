@@ -30,5 +30,13 @@
   <%= @mentor.country %>
 </p>
 
+<p>
+  <strong>Students :</strong><ul>
+  <% @mentor.students.find_each do |f| %>
+    <li><%= f.name %></li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_mentor_path(@mentor) %> |
 <%= link_to 'Back', mentors_path %>

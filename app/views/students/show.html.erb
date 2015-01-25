@@ -40,5 +40,19 @@
   <%= @student.sat_score %>
 </p>
 
+<p>
+<strong>Mentor :</strong>
+  <%= @student.mentor_id %>
+</p>
+
+<p>
+  <strong>Colleges you Applied</strong>
+  <ul>
+  <% @student.colleges.includes(:coll_applications).each do |y| %>
+    <li><%=  y.name %></li>
+  <% end %>
+  </ul>
+   </p>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Back', student_path %>

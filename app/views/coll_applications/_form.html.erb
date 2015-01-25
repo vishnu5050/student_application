@@ -1,0 +1,26 @@
+<%= form_for(@coll_application) do |f| %>
+  <% if @coll_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coll_application.errors.count, "error") %> prohibited this coll_application from being saved:</h2>
+
+      <ul>
+      <% @coll_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %><br>
+    <%= f.collection_select :student_id, Student.all,:id,:name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :college_id %><br>
+    <%= f.collection_select :college_id, College.all,:id,:name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

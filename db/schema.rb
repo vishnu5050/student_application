@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123090007) do
+ActiveRecord::Schema.define(version: 20150123195004) do
 
   create_table "coll_applications", force: :cascade do |t|
-    t.integer  "college_id"
-    t.integer  "mentor_id"
     t.integer  "student_id"
+    t.integer  "college_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "coll_applications", ["college_id"], name: "index_coll_applications_on_college_id"
+  add_index "coll_applications", ["student_id"], name: "index_coll_applications_on_student_id"
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"

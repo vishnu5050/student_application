@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.select :gender,options_for_select( %w[Choose Female Male]) %>
+    <%= f.select :gender,options_for_select( %w[Female Male]) %>
   </div>
   <div class="field">
     <%= f.label :dob %><br>
@@ -42,7 +42,14 @@
   <div class="field">
     <%= f.label :sat_score %><br>
     <%= f.number_field :sat_score ,:placeholder => "Enter your SAT score" %>
+    </div>
+ 
+    <div class="field">
+    <%= f.label :mentor %><br>
+    <%= f.collection_select :mentor_id, Mentor.all,:id,:name %>
   </div>
+
+ 
   <div class="actions">
     <%= f.submit %>
   </div>
