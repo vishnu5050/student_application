@@ -54,6 +54,7 @@ class CollegesController < ApplicationController
   # DELETE /colleges/1
   # DELETE /colleges/1.json
   def destroy
+    @college.coll_applications.destroy
     @college.destroy
     respond_to do |format|
       format.html { redirect_to colleges_url, notice: 'College was successfully destroyed.' }

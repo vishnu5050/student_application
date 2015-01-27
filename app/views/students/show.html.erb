@@ -42,7 +42,7 @@
 
 <p>
 <strong>Mentor :</strong>
-  <%= @student.mentor_id %>
+  <%= @student.mentor.name %>
 </p>
 
 <p>
@@ -55,4 +55,4 @@
    </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', student_path %>
+<%= link_to 'Back', students_path %>

@@ -31,7 +31,10 @@ a {
 
 div {
   &.field, &.actions {
-    margin-bottom: 10px;
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    background-color: #d6e5f4;
+    padding: 10px;
   }
 }
 

@@ -15,6 +15,7 @@ class CollApplicationsController < ApplicationController
   # GET /coll_applications/new
   def new
     @coll_application = CollApplication.new
+
   end
 
   # GET /coll_applications/1/edit
@@ -28,8 +29,8 @@ class CollApplicationsController < ApplicationController
 
     respond_to do |format|
       if @coll_application.save
-        format.html { redirect_to @coll_application, notice: 'Coll application was successfully created.' }
-        format.json { render :show, status: :created, location: @coll_application }
+        format.html { redirect_to action: "index", notice: 'Coll application was successfully created.' }
+        format.json { render :index, status: :created, location: @coll_application }
       else
         format.html { render :new }
         format.json { render json: @coll_application.errors, status: :unprocessable_entity }

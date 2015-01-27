@@ -1,5 +1,61 @@
 <h1>New Student</h1>
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name , :placeholder => "Enter your Name" %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.select :age ,(16..35) %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.select :gender,options_for_select( %w[Female Male]) %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob , {include_blank: false ,start_year: Date.today.year - 40 ,end_year: Date.today.year - 14 , default: {day:31,month: 1, year: 2001}} %>
+  </div>
+  <div class="field">
+    <%= f.label :current_school %><br>
+    <%= f.text_field :current_school , :placeholder => "Name of your current institution" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_level %><br>
+    <%= f.text_field :current_level ,:placeholder => "Current education level" %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country ,:placeholder => "country" %>
+  </div>
+  <div class="field">
+    <%= f.label :sat_score %><br>
+    <%= f.number_field :sat_score ,:placeholder => "Enter your SAT score" %>
+    </div>
+ 
+    <div class="field">
+    <%= f.label :mentor %><br>
+    <%= f.collection_select :mentor_id, Mentor.all,:id,:name %>
+  </div>
+
+
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', students_path %>

@@ -14,7 +14,7 @@
   <tbody>
     <% @coll_applications.each do |coll_application| %>
       <tr>
-        <td><%= coll_application.student.name %></td>
+        <td><%= coll_application.student.name  %></td> 
         <td><%= coll_application.college.name %></td>
         <td><%= link_to 'Show', coll_application %></td>
         <td><%= link_to 'Edit', edit_coll_application_path(coll_application) %></td>
