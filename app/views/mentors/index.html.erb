@@ -2,7 +2,7 @@
 
 <h1>Listing Mentors</h1>
 
-<table>
+<table class=" table table-bordered table-hover table-condensed">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,9 +24,9 @@
         <td><%= mentor.dob %></td>
         <td><%= mentor.bio %></td>
         <td><%= mentor.country %></td>
-        <td><%= link_to 'Show', mentor %></td>
-        <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>
-        <td><%= link_to 'Destroy', mentor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', mentor,class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_mentor_path(mentor),class: 'btn btn-primary'  %></td>
+        <td><%= link_to 'Destroy', mentor, method: :delete,class: 'btn btn-primary' , data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Mentor', new_mentor_path %>
+<%= link_to 'New Mentor', new_mentor_path ,class: 'btn-btn-primary' %>

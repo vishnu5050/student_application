@@ -29,8 +29,8 @@ class CollApplicationsController < ApplicationController
 
     respond_to do |format|
       if @coll_application.save
-        format.html { redirect_to action: "index", notice: 'Coll application was successfully created.' }
-        format.json { render :index, status: :created, location: @coll_application }
+        format.html { redirect_to action: "index", notice: 'Application was successfully sent.' }
+        format.json { render :index, status: :created, location: coll_application_path }
       else
         format.html { render :new }
         format.json { render json: @coll_application.errors, status: :unprocessable_entity }

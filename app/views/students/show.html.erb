@@ -46,13 +46,13 @@
 </p>
 
 <p>
-  <strong>Colleges you Applied</strong>
-  <ul>
-  <% @student.colleges.includes(:coll_applications).each do |y| %>
+  <strong>Colleges Applied</strong>
+  <ul><% @student.colleges.includes(:coll_applications).each do |y| %>
     <li><%=  y.name %></li>
-  <% end %>
+      <% end %>
+    <%= link_to 'Click here to Apply More' , new_coll_application_path , class: 'btn-btn-primary' %>
   </ul>
    </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Edit', edit_student_path(@student), class: 'btn-btn-primary'  %> |
+<%= link_to 'Back', students_path, class: 'btn-btn-primary' %>

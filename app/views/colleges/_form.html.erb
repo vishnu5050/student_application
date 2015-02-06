@@ -1,4 +1,6 @@
 <%= form_for(@college) do |f| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
   <% if @college.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@college.errors.count, "error") %> prohibited this college from being saved:</h2>
@@ -11,23 +13,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name , :placeholder => "Name of the college" %>
-  </div>
-  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name , :placeholder => "Enter College Name",class: 'form-control'  %>
+  <br>
     <%= f.label :country %><br>
-    <%= f.text_field :country ,:placeholder => "Country"%>
-  </div>
-  <div class="field">
-    <%= f.label :min_sat_score %><br>
-    <%= f.text_field :min_sat_score ,:placeholder => "Score required to join"%>
-  </div>
-  <div class="field">
+    <%= f.country_select :country,prompt: "Select Country" ,class: 'dropdown-menu' %>
+  <br>
+    <%= f.label :min_sat_score %>
+    <%= f.number_field :min_sat_score ,:placeholder => "Enter SAT score required",class: 'form-control'  %>
+  <br>
     <%= f.label :tution_fee %><br>
-    <%= f.text_field :tution_fee ,:placeholder => "Fee in USD"%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.number_field :tution_fee ,:placeholder => "Fee in USD", class: 'form-control' %>
+  <br>
+    <%= f.submit "Add College",class: "btn-btn-primary" %>
+    
+
 <% end %>

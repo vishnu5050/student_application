@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'students#index'
+  
   resources :colleges
 
   resources :mentors

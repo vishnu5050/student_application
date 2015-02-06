@@ -1,4 +1,6 @@
 <%= form_for(@mentor) do |f| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
   <% if @mentor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@mentor.errors.count, "error") %> prohibited this mentor from being saved:</h2>
@@ -11,31 +13,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name ,:placeholder => "Enter your Name" %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.select :age ,(20..75) %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-   <%= f.select :gender,options_for_select( %w[Female Male]) %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br>
-     <%= f.date_select :dob , {include_blank: false ,start_year: Date.today.year - 80 ,end_year: Date.today.year - 19 , default: {day:31,month: 1, year: 1995}} %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio ,:placeholder => "Words about you" %>
-  </div>
-  <div class="field">
+   <%= f.label :name %>
+    <%= f.text_field :name , :placeholder => "Enter your Name",class: 'form-control'  %>
+     <br>
+    <%= f.label :age %>
+    <%= f.select :age ,(20..75),class: 'dropdown-menu'  %>
+  
+    <%= f.label :gender %>
+    <%= f.select :gender,options_for_select( %w[Female Male]),prompt: "Select your Gender",class: 'dropdown-menu'  %>
+  <br>
+  <br>
+    <%= f.label :dob %>
+    <%= f.date_select :dob , {include_blank: false ,start_year: Date.today.year - 80 ,end_year: Date.today.year - 19 , default: {day:31,month: 1, year: 2001}},class: 'date'  %>
+  <br>
     <%= f.label :country %><br>
-    <%= f.text_field :country, :placeholder => "Country" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.country_select :country,prompt: "Select your Country" ,class: 'dropdown-menu' %>
+  <br>
+    <%= f.label :bio %>
+    <%= f.text_area :bio ,:placeholder => "Words about you",class: 'form-control' %>
+  <br>
+  <br>
+    <%= f.submit "Create Account",class: "btn-btn-primary" %>
+
+
 <% end %>

@@ -20,5 +20,31 @@
   <%= @college.tution_fee %>
 </p>
 
-<%= link_to 'Edit', edit_college_path(@college) %> |
-<%= link_to 'Back', colleges_path %>
+<p>
+	<strong>Students Applied for this college</strong>
+</p>
+
+<table class=" table table-bordered table-hover table-condensed" >
+	<thead>
+		<tr>
+			<th>Student Name</th>
+			<th>SAT Score</th>
+      <th>Current School</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @college.students.find_each do |f| %>
+		<tr>
+    		<td><%= f.name %></td>
+    		<td><%= f.sat_score %></td>
+        <td><%= f.current_school %></td>
+    	</tr>
+    	<% end %>
+    </tbody>
+  
+  </table>
+
+
+<%= link_to 'Edit', edit_college_path(@college) , class: 'btn-btn-primary' %> |
+<%= link_to 'Back', colleges_path, class: 'btn-btn-primary' %>
